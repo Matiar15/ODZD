@@ -8,10 +8,21 @@ from src.utils.catch_time import catch_time
 _logger = logging.getLogger(__name__)
 
 NUMBER_COMPARISON_OPERATORS = [
-    "$eq", "$gt", "$gte", "$lt", "$lte", "$ne",
+    "$eq",
+    "$gt",
+    "$gte",
+    "$lt",
+    "$lte",
+    "$ne",
 ]
 
-def throughput(n: int, client: pymongo.MongoClient, database: str, collection: str,) -> tuple[float, list[float]]:
+
+def throughput(
+    n: int,
+    client: pymongo.MongoClient,
+    database: str,
+    collection: str,
+) -> tuple[float, list[float]]:
     _logger.debug("Checking throughput for %d operations..." % n)
     database_results = []
 

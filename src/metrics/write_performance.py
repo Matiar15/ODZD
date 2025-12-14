@@ -5,14 +5,23 @@ from src.utils.catch_time import catch_time
 
 _logger = logging.getLogger(__name__)
 
-def write_performance(n: int, client: pymongo.MongoClient, database: str, collection: str,) -> tuple[float, list[float]]:
+
+def write_performance(
+    n: int,
+    client: pymongo.MongoClient,
+    database: str,
+    collection: str,
+) -> tuple[float, list[float]]:
     _logger.info("Checking write performance for %d operations..." % n)
     collected = []
     with catch_time() as t:
         for i in range(n):
             with catch_time() as t_2:
                 properties = client.get_database(database)
-                boston = properties.get_collection(collection, write_concern=pymongo.WriteConcern(w="majority", j=True),)
+                boston = properties.get_collection(
+                    collection,
+                    write_concern=pymongo.WriteConcern(w="majority", j=True),
+                )
                 record = {
                     "CRIM": 0.02,
                     "ZN": 18.0,

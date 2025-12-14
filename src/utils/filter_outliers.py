@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def filter_outliers(data):
     Q1 = np.percentile(data, 25)
     Q3 = np.percentile(data, 75)

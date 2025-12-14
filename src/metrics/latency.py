@@ -5,7 +5,13 @@ from src.utils.catch_time import catch_time
 
 _logger = logging.getLogger(__name__)
 
-def latency(n: int, client: pymongo.MongoClient, database: str, collection: str,) -> float:
+
+def latency(
+    n: int,
+    client: pymongo.MongoClient,
+    database: str,
+    collection: str,
+) -> tuple[float, list[float]]:
     _logger.info("Checking latency...")
     runs = []
 
@@ -14,7 +20,7 @@ def latency(n: int, client: pymongo.MongoClient, database: str, collection: str,
             with catch_time() as t_2:
                 properties = client.get_database(database)
                 boston = properties.get_collection(collection)
-                query = {'ptratio': {'$lte': 20}}
+                query = {"ptratio": {"$lte": 20}}
                 list(boston.find(query))
                 runs.append(t_2())
 

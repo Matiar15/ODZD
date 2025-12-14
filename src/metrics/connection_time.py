@@ -6,7 +6,11 @@ from src.utils.catch_time import catch_time
 
 _logger = logging.getLogger(__name__)
 
-def connection_time(n: int, client: pymongo.MongoClient,) -> tuple[float, list[float]]:
+
+def connection_time(
+    n: int,
+    client: pymongo.MongoClient,
+) -> tuple[float, list[float]]:
     client.close()
     collected = []
 
