@@ -1,6 +1,13 @@
 [project]
 name = "odzd"
 version = "0.1.0"
-description = "Add your description here"
+description = "Project made for database load tests"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "dotenv>=0.9.9",
+    "matplotlib>=3.10.8",
+    "notebook>=7.5.0",
+    "numpy>=2.3.5",
+    "pymongo>=4.15.5",
+    "scipy>=1.16.3",
+]
