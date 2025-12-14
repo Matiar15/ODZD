@@ -10,4 +10,8 @@ dependencies = [
     "numpy>=2.3.5",
     "pymongo>=4.15.5",
     "scipy>=1.16.3",
+    "jupyter>=1.0.0",
+    "ruff==0.13.3",
+    "mypy==1.18.2",
+    "scipy-stubs>=1.16.3.3",
 ]
